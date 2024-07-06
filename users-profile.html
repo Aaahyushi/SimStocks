@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Users / Portfolio - SimStocks</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    #stockTable {
+      text-align: center;
+    }
+
+    #stockTable th, #stockTable td {
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px; 
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <div id="header_template"></div>
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- End Dashboard Nav -->
+      
+      <!-- End Icons Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="portfolio.html">
+          <i class="bi bi-person"></i>
+          <span>My Portfolio</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="users-profile.html">
+          <i class="bi bi-person"> </i>
+          <span>Profile</span>
+          <!-- <class id="Profile"></class> -->
+        </a>
+      </li>
+      <!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li>
+      <!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+      <!-- End Contact Page Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>LogOut</span>
+        </a>
+      </li>
+      <!-- End Login Page Nav -->
+
+    </ul>
+  </aside>
+  <!-- End Sidebar-->
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>My Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Users</li>
+          <li class="breadcrumb-item active">My Profile</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+      <div class="row">
+        <center>
+        <div class="col-xl-8">
+
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+              <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle";><br>
+              <h1 id = "username_val" style = "font-weight: bold";></h1><br>
+              <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center" style="background-color: #0156B3;">
+                <h1 style = "font-weight: bold; color: white;"> Current Balance</h1></div>
+                <br>
+              <h1 id = "invested" style = "font-weight: bold; color: #0156B3;">
+              </h1><br>
+            </div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </center>
+
+        </div>
+    </section>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>SimStocks</span></strong>. All Rights Reserved
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Firebase and Main JS File -->
+  <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+      import {
+      getDatabase,
+      ref,
+      set,
+      onValue,
+      child,
+      get,
+      update,
+      } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC02oNzXbYzsD3bbLY6c7VgN0SbU3zDP_U",
+      authDomain: "simstocks-417718.firebaseapp.com",
+      projectId: "simstocks-417718",
+      storageBucket: "simstocks-417718.appspot.com",
+      messagingSenderId: "769226150702",
+      appId: "1:769226150702:web:5cab37b5f8059a355ee0bf",
+      measurementId: "G-JWD5QGH6R0",
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    console.log(app);
+    // Firebase database reference
+    const database = getDatabase(app);
+    
+    // Reference to the "stockDetails" node in your Firebase database
+    const stockDetailsRef = ref(getDatabase());
+    //document.getElementById('stockTable').document.getElementsByTagName(tbody).innerHTML="";
+    // Function to fetch and display stock details in the table
+    // Function to fetch and display stock details in the table
+function displayStockDetails() {
+  var user = sessionStorage.getItem("Username");
+  onValue(stockDetailsRef, (snapshot) => {
+    const stockData = snapshot.val();
+    console.log(stockData);
+    user = user.substring(1, user.length - 1);
+    console.log(user);
+    console.log(stockData["users"][user]);
+    document.getElementById("username_val").textContent = user;
+    document.getElementById("invested").textContent = `$ ${(stockData["users"][user]["balance"]).toFixed(2)}`;
+
+  });
+}
+
+displayStockDetails();
+  </script>
+  <script src="assets/js/main.js"></script>
+  <!-- Additional scripts go here -->
+  <script src="script/buy.js"></script>
+    <script src="script/web_socket.js"></script>
+    <script src="script/load.js"></script>
+    <script src="script/header.js"></script>
+</body>
+
+</html>
